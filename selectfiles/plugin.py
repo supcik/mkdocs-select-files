@@ -52,7 +52,7 @@ class SelectFiles(BasePlugin):
 
         logger.debug("Filtering files")
         # some variables that the user can use in the select lambda:
-        now = datetime.datetime.isoformat(datetime.datetime.now)
+        now = datetime.datetime.isoformat(datetime.datetime.now())
         sfc = os.getenv('SELECT_FILE_CONDITION')
 
         try:

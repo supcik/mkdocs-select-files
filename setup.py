@@ -19,7 +19,7 @@ with open('README.md') as f:
 
 setup(
     name='mkdocs-select-files',
-    version='0.3.0',
+    version='0.3.3',
     packages=['selectfiles'],
     license='Apache-2.0',
     author='Jacques Supcik',
