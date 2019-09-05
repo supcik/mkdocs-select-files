@@ -31,7 +31,7 @@ class SelectFiles(BasePlugin):
         ('disabled_if_env', config_options.Type(utils.string_types)),
         ('select', config_options.Type(utils.string_types, default='(\d+)')),
         ('where', config_options.Type(
-            mutils.string_types, default='lambda x: int(x) >= 0')),
+            utils.string_types, default='lambda x: int(x) >= 0')),
     )
 
     def __init__(self):
