@@ -64,7 +64,7 @@ class SelectFiles(BasePlugin):
             return files
 
         try:
-            where = eval(self.config["where"], globals=global_vars)
+            where = eval(self.config["where"], global_vars)
         except Exception as e:
             logger.error("Error evaluating where expression : %s", e)
             return files
