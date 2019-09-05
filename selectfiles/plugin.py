@@ -52,8 +52,10 @@ class SelectFiles(BasePlugin):
 
         logger.debug("Filtering files")
         # some variables that the user can use in the select lambda:
-        self.now = datetime.datetime.isoformat(datetime.datetime.now())
-        self.sfc = os.getenv('SELECT_FILE_CONDITION')
+        global_vars = {
+            'now' : datetime.datetime.isoformat(datetime.datetime.now()),
+            'sfc' : os.getenv('SELECT_FILE_CONDITION'),
+        }
 
         try:
             select = re.compile(self.config["select"])
@@ -62,7 +64,7 @@ class SelectFiles(BasePlugin):
             return files
 
         try:
-            where = eval(self.config["where"])
+            where = eval(self.config["where"], globals=global_vars)
         except Exception as e:
             logger.error("Error evaluating where expression : %s", e)
             return files
