@@ -52,8 +52,8 @@ class SelectFiles(BasePlugin):
 
         logger.debug("Filtering files")
         # some variables that the user can use in the select lambda:
-        now = datetime.datetime.isoformat(datetime.datetime.now())
-        sfc = os.getenv('SELECT_FILE_CONDITION')
+        self.now = datetime.datetime.isoformat(datetime.datetime.now())
+        self.sfc = os.getenv('SELECT_FILE_CONDITION')
 
         try:
             select = re.compile(self.config["select"])
